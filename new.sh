@@ -17,6 +17,19 @@ new.sh
 
  createDatabaseIfDoesNotExist $1
 
+
+ timestamp() {
+   #date +"%T"
+   date "+%Y-%m-%d %H:%M:%S"
+ }
+
+ # do something...
+ timestamp # print timestamp
+ # do something else...
+ timestamp # print another timestamp
+ # continue...
+   #create table if it exist or not
+
 # define directory containing CSV documents
 documentDirectoryPath="/Users/kayode.bello/Desktop/KAYODE_SQL/"
 
@@ -46,7 +59,8 @@ do
   # echo ""
   # echo "$headerColumns"
 
-  #create table if it exist or not
+# Define a timestamp function
+
   /usr/local/mysql/bin/mysql -u $_db_user $_db << eof
   DROP TABLE IF EXISTS \`$tableName\`;
   CREATE TABLE IF NOT EXISTS \`$tableName\` (id int(11) NOT NULL AUTO_INCREMENT, PRIMARY KEY (id)
